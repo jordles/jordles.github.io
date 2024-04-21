@@ -3809,7 +3809,7 @@ input, select, textarea {
 		height: 100%;
 	}
 	#grid-projects a:nth-of-type(1) article{
-		background-image: url('calculator-thumbnail.jpg');
+		background-image: url('images/calculator-thumbnail.jpg');
 		background-position: none;
 		background-size: cover;
 		
@@ -3817,7 +3817,7 @@ input, select, textarea {
 	}
 		
 			#grid-projects  a:nth-of-type(1) article:hover{
-				background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('calculator-thumbnail.jpg');
+				background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('images/calculator-thumbnail.jpg');
 				background-position: none;
 				background-size: cover;
 				cursor: pointer;
