@@ -3832,41 +3832,42 @@ input, select, textarea {
     text-align: center;
   }
 
-	#grid-projects a:nth-of-type(1) article{
-		background-image: url('images/chat_app.gif');
+  #grid-projects  a:nth-of-type(1) article{
+		background-image: url('images/rootApp.gif');
 	}
-		
-			#grid-projects  a:nth-of-type(1) article:hover{
-				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/chat_app.gif');
+			
+			#grid-projects a:nth-of-type(1) article:hover{
+				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/rootApp.gif');
 			}
 
 			#grid-projects a:nth-of-type(1) article:hover section > *{
 				visibility: visible;
 			}
 
-	#grid-projects  a:nth-of-type(2) article{
-		background-image: url('images/tic_tac_toe.gif');
+	#grid-projects a:nth-of-type(2) article{
+		background-image: url('images/chat_app.gif');
 	}
-			
+		
 			#grid-projects  a:nth-of-type(2) article:hover{
-				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/tic_tac_toe.gif');
+				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/chat_app.gif');
 			}
 
-			#grid-projects  a:nth-of-type(2) article:hover section > *{
+			#grid-projects a:nth-of-type(2) article:hover section > *{
 				visibility: visible;
 			}
 
 	#grid-projects  a:nth-of-type(3) article{
-		background-image: url('https://camo.githubusercontent.com/1ba07f144d9f1fbbbe6253eefbe4690d872fa19ccd59f6eb1885227166384b7b/68747470733a2f2f6a61766173637269707433302e636f6d2f696d616765732f4a53332d736f6369616c2d73686172652e706e67');
+		background-image: url('images/tic_tac_toe.gif');
 	}
 			
-			#grid-projects a:nth-of-type(3) article:hover{
-				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('https://camo.githubusercontent.com/1ba07f144d9f1fbbbe6253eefbe4690d872fa19ccd59f6eb1885227166384b7b/68747470733a2f2f6a61766173637269707433302e636f6d2f696d616765732f4a53332d736f6369616c2d73686172652e706e67');
+			#grid-projects  a:nth-of-type(3) article:hover{
+				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/tic_tac_toe.gif');
 			}
 
-			#grid-projects a:nth-of-type(3) article:hover section > *{
+			#grid-projects  a:nth-of-type(3) article:hover section > *{
 				visibility: visible;
 			}
+
 
 	#grid-projects a:nth-of-type(4) article{
 		background-image: url('images/kalos_pokedex.gif');
