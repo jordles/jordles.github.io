@@ -3137,7 +3137,7 @@ input, select, textarea {
 
 		.spotlight.top .content, .spotlight.bottom .content {
 			left: 0;
-			padding-top: 2em;
+			/* padding-top: 2em; */
 			width: 100%;
 		}
 
@@ -3785,7 +3785,9 @@ input, select, textarea {
 		text-align: center;
 	}
 
-
+	.projects header h2{
+		margin: 0 !important;
+	}
 	#grid-projects{
 		width: 100%;
 		height: 100%;
