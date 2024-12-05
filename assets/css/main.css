@@ -633,14 +633,6 @@ input, select, textarea {
 			z-index: 100000;
 		}
 
-	@media (-webkit-min-device-pixel-ratio: 2) {
-
-		body.landing:before {
-			line-height: 2.025em;
-		}
-
-	}
-
 /* Container */
 
 	.container {
@@ -1675,7 +1667,8 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 			#one > #grid-projects{
 				grid-template-columns: repeat(1, 1fr);
-					
+				
+				
 			}
 			.row {
 				display: flex;
@@ -2351,7 +2344,7 @@ input, select, textarea {
 				line-height: 1;
 				text-transform: none !important;
 				font-family: 'Font Awesome 5 Free';
-				font-weight: 900;
+				font-weight: 400;
 			}
 
 			input[type="checkbox"] + label:before,
@@ -2548,12 +2541,11 @@ input, select, textarea {
 		.image:before {
 			content: '';
 			display: block;
-			position: absolute;
+			height: 100vh;
 			left: 0;
 			top: 0;
 			background-image: url("images/overlay.png");
 			width: 100%;
-			height: 100%;
 			z-index: 1;
 		}
 		*/
@@ -3001,8 +2993,9 @@ input, select, textarea {
 		background-size: cover;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25);
 		height: 100vh;
-		/*overflow: hidden;*/
 		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
 
 		.spotlight:nth-last-of-type(1) {
@@ -3086,13 +3079,14 @@ input, select, textarea {
 		}
 		/*
 		.spotlight:before {
-			background-image: url("images/overlay.png");
 			content: '';
 			display: block;
-			height: 100%;
+			height: 100vh;
 			left: 0;
 			top: 0;
+			background-image: url("images/overlay.png");
 			width: 100%;
+			z-index: 1;
 		}
 		*/
 
@@ -3105,34 +3099,14 @@ input, select, textarea {
 			}
 
 		.spotlight .content {
-			-moz-transform: translate(0,0);
-			-webkit-transform: translate(0,0);
-			-ms-transform: translate(0,0);
-			transform: translate(0,0);
-			-moz-transition: -moz-transform 1s ease, opacity 1s ease;
-			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
-			-ms-transition: -ms-transform 1s ease, opacity 1s ease;
-			transition: transform 1s ease, opacity 1s ease;
 			background: rgba(23, 24, 32, 0.95);
-			border-style: solid;
-			opacity: 1;
-			position: absolute;
-		}
+			position: relative;
+			width: 100%;
+			height: auto;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
 
-		.spotlight .goto-next {
-			-moz-transform: translate(0,0);
-			-webkit-transform: translate(0,0);
-			-ms-transform: translate(0,0);
-			transform: translate(0,0);
-			-moz-transition: -moz-transform 0.75s ease, opacity 1s ease-in;
-			-webkit-transition: -webkit-transform 0.75s ease, opacity 1s ease-in;
-			-ms-transition: -ms-transform 0.75s ease, opacity 1s ease-in;
-			transition: transform 0.75s ease, opacity 1s ease-in;
-			-moz-transition-delay: 0.5s;
-			-webkit-transition-delay: 0.5s;
-			-ms-transition-delay: 0.5s;
-			transition-delay: 0.5s;
-			opacity: 1;
 		}
 
 		.spotlight.top .content, .spotlight.bottom .content {
@@ -3772,7 +3746,7 @@ input, select, textarea {
 						}
 	body.is-touch #banner {
 		background-attachment: scroll;
-	}
+}
 
 
 
@@ -3790,36 +3764,22 @@ input, select, textarea {
 	}
 	#grid-projects{
 		width: 100%;
-		height: 100%;
-		border: solid black;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		justify-content: center;
-		align-content: center;
-		gap: 1%;
-    padding-top: 6em;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1em;
+		padding: 1%;
+		margin: 0 auto;
+		max-width: 100%;
+		position: relative;
+		flex: 1;
+		align-items: stretch;
 	}
-	#grid-projects a p{
-		color: white;
-	}
-
-  #grid-projects > p {
-    margin-top: 10px;
-    grid-column: 1/-1;
-    font-size: 2rem;
-    font-weight:bolder;
-    text-align: center;
-    background: black;
-    padding: 10px;
-  }
-  #grid-projects > p > a{
-    border: none;
-  }
 
 	#grid-projects a {
 		width: 100%;
-		height: 100%;
+		aspect-ratio: 16/9;
 		border: solid white;
+		border-radius: 10px;
 	}
 
 	#grid-projects a > article{
@@ -3830,11 +3790,46 @@ input, select, textarea {
     background-repeat:no-repeat;
 	}
 
-  #grid-projects a > article h1{
+  .github-projects {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight:bolder;
     text-align: center;
+    background: black;
+    padding: 10px;
+  }
+  .github-projects > a{
+    border: none;
   }
 
-  #grid-projects  a:nth-of-type(1) article{
+	#grid-projects  article section{
+		padding: 10% 10%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#grid-projects  article section > *{
+		visibility: hidden;
+	}
+
+	#grid-projects article:hover{
+		overflow: auto;
+		border-radius: 10px;
+		scrollbar-width: none;
+		-ms-overflow-style: none
+	}
+
+	#grid-projects  article section h1{
+		font-size: 2em;
+	}
+
+	#grid-projects  article section p{
+		margin:0;
+	}
+
+	#grid-projects a:nth-of-type(1) article{
 		background-image: url('images/rootApp.gif');
 	}
 			
@@ -3866,7 +3861,7 @@ input, select, textarea {
 				background-image: linear-gradient(rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.9)), url('images/tic_tac_toe.gif');
 			}
 
-			#grid-projects  a:nth-of-type(3) article:hover section > *{
+			#grid-projects a:nth-of-type(3) article:hover section > *{
 				visibility: visible;
 			}
 
@@ -3908,19 +3903,18 @@ input, select, textarea {
 				visibility: visible;
 			}
 
-		#grid-projects  article section{
-			padding: 15% 20%;
+	@media screen and (max-width: 980px) {
+		#grid-projects {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
-		#grid-projects  article section > *{
-			visibility: hidden;
-		}
-		#grid-projects  article section h1{
-			font-size: 2em;
-		}
+	}
 
-		#grid-projects  article section p{
-			margin:0;
+	@media screen and (max-width: 736px) {
+		#grid-projects {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			padding: 1em;
 		}
+	}
 
 /*Four*/
 
@@ -4025,7 +4019,7 @@ input, select, textarea {
 		/* Spotlight */
 
 			.spotlight.top .content {
-				padding: 3.825em 0 1.825em 0;
+				/* padding: 3.825em 0 1.825em 0; */
 			}
 
 			.spotlight.bottom .content {
@@ -4130,8 +4124,8 @@ input, select, textarea {
 				background-attachment: scroll;
 			}
 
-				#banner .goto-next {
-					height: 7em;
+				#banner:before {
+					/*height: calc(100vh - 44px);*/
 				}
 
 				#banner .content {
@@ -4262,16 +4256,17 @@ input, select, textarea {
 					padding: 4.0625em 1.5em 4.875em 1.5em;
 				}
 
-					#banner .content header h2 {
-						font-size: 1.5em;
+					#banner .content header {
+						display: block;
+						margin: 0 0 2em 0;
+						text-align: center;
 					}
 
 					#banner .content .image {
 						/*height: 9em;
 						width: 9em;*/
 					}
-
-		/* Nav */
+				/* Nav */
 
 			#page-wrapper {
 				-moz-backface-visibility: hidden;
@@ -4357,87 +4352,6 @@ input, select, textarea {
 						text-align: center;
 						top: 0;
 						width: 54px;
-					}
-
-			#navPanel {
-				-moz-backface-visibility: hidden;
-				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
-				backface-visibility: hidden;
-				-moz-transform: translateX(-275px);
-				-webkit-transform: translateX(-275px);
-				-ms-transform: translateX(-275px);
-				transform: translateX(-275px);
-				-moz-transition: -moz-transform 0.5s ease;
-				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
-				transition: transform 0.5s ease;
-				display: block;
-				height: 100%;
-				left: 0;
-				overflow-y: auto;
-				position: fixed;
-				top: 0;
-				width: 275px;
-				z-index: 10002;
-				background: #181920;
-				padding: 0.75em 1.25em;
-			}
-
-				#navPanel .link {
-					border: 0;
-					border-top: solid 1px rgba(255, 255, 255, 0.05);
-					color: rgba(255, 255, 255, 0.75);
-					display: block;
-					height: 3em;
-					line-height: 3em;
-					text-decoration: none;
-				}
-
-					#navPanel .link:hover {
-						color: inherit !important;
-					}
-
-					#navPanel .link:first-child {
-						border-top: 0;
-					}
-
-					#navPanel .link.depth-0 {
-						color: #ffffff;
-						font-weight: 300;
-					}
-
-					#navPanel .link:not(:first-of-type){
-						display: none;
-					}
-
-					#navPanel .link:last-of-type{
-						display:initial;
-					}
-
-					#navPanel .link .indent-1 {
-						display: inline-block;
-						width: 1.25em;
-					}
-
-					#navPanel .link .indent-2 {
-						display: inline-block;
-						width: 2.5em;
-					}
-
-					#navPanel .link .indent-3 {
-						display: inline-block;
-						width: 3.75em;
-					}
-
-					#navPanel .link .indent-4 {
-						display: inline-block;
-						width: 5em;
-					}
-
-					#navPanel .link .indent-5 {
-						display: inline-block;
-						width: 6.25em;
 					}
 
 			body.navPanel-visible #page-wrapper {
@@ -4532,5 +4446,3 @@ input, select, textarea {
 						margin: 0;
 						padding: 0;
 					}
-
-	}
